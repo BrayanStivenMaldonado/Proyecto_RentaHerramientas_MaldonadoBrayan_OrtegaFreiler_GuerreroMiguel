@@ -3,6 +3,7 @@ package com.alquiler.alquiler_app.domain.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "role")
 public class Role {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", length = 250)
@@ -39,6 +40,4 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }  
-    
-    
 }

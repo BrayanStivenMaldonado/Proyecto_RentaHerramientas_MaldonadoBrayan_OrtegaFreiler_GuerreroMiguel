@@ -17,7 +17,6 @@ public class Tool {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String toolName;
     private String image;
     private String usage;
