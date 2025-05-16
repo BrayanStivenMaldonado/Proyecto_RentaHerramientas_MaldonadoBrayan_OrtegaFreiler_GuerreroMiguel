@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    background-color: #4f4f4f;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 1rem;
+}
+
+li {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #C9D85C;
+    transition: 0.5s;
+}
+
+.contact {
+    color: #C9D85C;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.usuario {
+    width: 45px;
+    height: 45px;
+}
+
+.Usuario_button{
+    background-color: transparent;
+    border: none;
+}
+
+.Usuario_button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.notificacion {
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+}
+
+.notificacion_button{
+    background-color: transparent;
+    border: none;
+}
+
+.notificacion_button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.carrito {
+    width: 100px;
+    height: 60px;
+}
+
+.carrito_button{
+    background-color: transparent;
+    border: none;
+}
+
+.carrito_button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
