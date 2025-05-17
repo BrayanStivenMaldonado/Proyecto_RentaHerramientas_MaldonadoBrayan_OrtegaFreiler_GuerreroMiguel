@@ -1,63 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructora MSF - Contacto</title>
-    <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Constructora MSF - Contacto</title>
+  <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <div class="links">
-                <img src="../media/image 8.png" alt="Logo" class="logo">
-                <nav>
-                    <ul>
-                        <li><a href="../Catalogo/Catalogo.html">Catalogo</a></li>
-                        <li><a href="../Nosotros/Nosotros.html">Nosotros</a></li>
-                        <li><a href="../Contacto/contacto.html" class="contact">Contacto</a></li>
-                    </ul>
-                </nav>
-                <div class="buttons">
-                    <button type="button" class="Usuario_button">
-                    <img src="../media/User.png" alt="Usuario" class="usuario">
-                </button>
-                <button type="button" class="notificacion_button">
-                    <img src="../media/Notificacion.png" alt="Notificacion" class="notificacion">
-                </button>
-                <button type="button" class="carrito_button">
-                    <img src="../media/Carrito.png" alt="Compras" class="carrito">
-                </button>
-                </div>
-            </div>
-        </header>
+  <header class="links">
+    <img src="../media/image 8.png" alt="Logo" class="logo"/>
+    <nav>
+      <ul>
+        <li><a href="../Catalogo/Catalogo.html">CATALOGO</a></li>
+        <li><a href="../Nosotros/Nosotros.html">NOSOTROS</a></li>
+        <li><a href="../Contacto/contacto.html" class="contact">CONTACTO</a></li>
+      </ul>
+    </nav>
+    <div class="buttons">
+      <button class="Usuario_button"><img src="../media/User.png" alt="Usuario" class="usuario"/></button>
+      <button class="notificacion_button"><img src="../media/Notificacion.png" alt="Notificacion" class="notificacion"/></button>
+      <button class="carrito_button"><img src="../media/Carrito.png" alt="Carrito" class="carrito"/></button>
     </div>
-    <div class="container_info">
-        <div class="mensaje">
-            <p>¡Haz que tu proyecto avance sin detenerse! <br> Escribenos y consigue las herramientas que necesitas
-                ahora</p>
-            </div>
-            <img src="../media/Maquinaria_contacto.png" alt="Imagen_contacto" class="imagen_contacto">
-            <img src="../media/Madera.png" alt="Madera" class="madera">
+  </header>
 
-            <div class="contacto">
-                <div class="formulario">
-                    <form action="#informacion" method="POST">
-                        <input type="text" id="nombre" name="nombre" required placeholder="Nombre completo">
+  <main class="contenido">
+    <section class="informacion">
+      <p class="mensaje">
+        ¡Haz que tu proyecto avance sin detenerse!<br/>
+        Escríbenos y consigue las herramientas que necesitas ahora
+      </p>
+      <img src="../media/Maquinaria_contacto.png" alt="Maquinaria" class="imagen_maquinaria"/>
+    </section>
 
-                        <input type="email" id="email" name="email" required placeholder="Correo electronico">
-
-                        <input type="text" id="telefono" name="telefono" required placeholder="Numero de Telefono">
-
-                        <input type="text" id="asunto" name="asunto" required placeholder="Asunto">
-
-                        <button type="submit" class="button">ENVIAR</button>
-                    </form>
-                </div>
-            </div>
+    <section class="formulario">
+      <form action="https://formspree.io/f/mzzroorp" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required/>
+        <input type="email" name="email" placeholder="Correo" required/>
+        <input type="text" name="telefono" placeholder="Telefono" required/>
+        <input type="text" name="asunto" placeholder="Asunto" required/>
+        <button type="submit">ENVIAR</button>
+      </form>
+    </section>
+  </main>
 </body>
-
 </html>
