@@ -154,4 +154,7 @@ input {
     }
 }
 
-/* ESTILOS DE LA PAGINA CONTACTO */
+a {
+    text-decoration: none;
+    color: white;
+}

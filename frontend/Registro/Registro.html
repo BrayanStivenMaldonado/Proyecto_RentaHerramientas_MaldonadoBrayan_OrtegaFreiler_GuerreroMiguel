@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro - Alquiler MSF</title>
-  <link rel="stylesheet" href="Registro.css" />
+  <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon">
+  <link rel="stylesheet" href="./Registro.css" />
 </head>
+
 <body>
   <div class="container">
     <div class="form-section">
@@ -17,26 +20,35 @@
         </div>
         <input type="email" placeholder="Correo" required />
         <input type="email" placeholder="Confirmar Correo" required />
-        <div class="password-group">
-          <input type="password" placeholder="Contraseña" required />
-         <button class="buttonojito"  type="button"><img class="ojito" src="img/invisible.png" alt="ojo mostrar contraseña"></button>
+
+        <div class="password_field">
+          <input type="password" id="password" name="password" placeholder="Contraseña" required />
+          <button type="button" class="ocultar_password" onclick="togglePasswordVisibility()">
+            <img src="../media/invisible 3.png" alt="Ojito" class="password_visible" />
+          </button>
         </div>
-        <div class="password-group">
-          <input type="password" placeholder="Confirmar Contraseña" required />
-          <button class="buttonojito"  type="button"><img class="ojito" src="img/invisible.png" alt="ojo mostrar contraseña"></button>
+
+        <div class="password_field">
+          <input type="password" id="password2" name="password2" placeholder="Confirmar Contraseña" required />
+          <button type="button" class="ocultar_password" onclick="togglePasswordVisibility2()">
+            <img src="../media/invisible 3.png" alt="Ojito" class="password_visible" />
+          </button>
         </div>
+
         <label class="terms">
           <input type="checkbox" required />
           Aceptar términos y condiciones
         </label>
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit" class="Login"><a href="../Login/Login.html">Iniciar Sesión</a></button>
       </form>
-      </div>
-      <div class="welcome-section">
-        <div class="contimg"><img class="imgregistro" src="./img/img2-Photoroom.png" alt=""></div>
-        <h1>BIENVENIDO A<br /><span>ALQUILER MSF</span></h1>
-        <p>Accede a tu cuenta para alquilar maquinaria o herramientas para la construcción</p>
+    </div>
+    <div class="welcome-section">
+      <div class="contimg"><img class="imgregistro" src="./img/img2-Photoroom.png" alt=""></div>
+      <h1>BIENVENIDO A<br /><span>ALQUILER MSF</span></h1>
+      <p>Accede a tu cuenta para alquilar maquinaria o herramientas para la construcción</p>
     </div>
   </div>
 </body>
+<script src="./Verificacion.js"></script>
+
 </html>

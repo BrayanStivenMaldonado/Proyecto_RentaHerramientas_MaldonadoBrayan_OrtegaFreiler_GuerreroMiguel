@@ -21,16 +21,18 @@
                     <label for="password" class="password">Contraseña</label>
                     <div class="password_field">
                         <input type="password" id="password" name="password" required />
-                        <button type="button" class="ocultar_password">
+                        <button type="button" class="ocultar_password" onclick="togglePasswordVisibility()">
                             <img src="../media/invisible 3.png" alt="Ojito" class="password_visible" />
                         </button>
                     </div>
 
-                    <button type="submit" class="button">ENTRAR</button>
-                    <button type="button" class="button">REGISTRAR</button>
-                </form>
+                    <button type="submit" class="button"><a href="../Catalogo/Catalogo.html">ENTRAR</a></button>
+                    <button type="button" class="button">
+                        <a href="../Registro/Registro.html">REGISTRAR</a></button>
+                    </form>
             </div>
         </div>
     </div>
 </body>
+<script src="./Password.js"></script>
 </html>
