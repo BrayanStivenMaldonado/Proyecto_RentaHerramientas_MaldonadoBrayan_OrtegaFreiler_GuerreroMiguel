@@ -19,9 +19,11 @@ body {
   align-items: center;
   background-color: #4f4f4f;
   padding: 1rem 2rem;
+  max-height: 80px;
 }
 
 .logo {
+  position: relative;
   width: 100px;
 }
 
@@ -42,8 +44,9 @@ nav a:hover {
   transition: 0.5s;
 }
 
-.contact {
-  color: #C9D85C;
+.Active {
+  color: #C1CF57;
+  text-decoration: none;
 }
 
 .buttons {
@@ -52,7 +55,8 @@ nav a:hover {
   gap: 1rem;
 }
 
-.usuario, .notificacion {
+.usuario,
+.notificacion {
   width: 40px;
 }
 
@@ -137,6 +141,19 @@ button {
 
 .formulario button:hover {
   background-color: #b0c04d;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #302F2F;
+  padding: 2rem 0;
+}
+
+footer p {
+  color: white;
+  font-size: 1.2rem;
 }
 
 /* Responsive */

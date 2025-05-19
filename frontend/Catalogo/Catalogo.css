@@ -133,10 +133,17 @@ main {
 }
 
 footer {
-  height: 50px;
-  background-color: #1d1d1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #302F2F;
+  padding: 2rem 0;
 }
 
+footer p {
+  color: white;
+  font-size: 1.2rem;
+}
 
 @media (max-width: 768px) {
   main {
