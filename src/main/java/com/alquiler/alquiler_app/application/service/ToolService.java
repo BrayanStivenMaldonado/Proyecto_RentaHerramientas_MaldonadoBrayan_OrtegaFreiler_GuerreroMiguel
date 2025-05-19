@@ -1,14 +1,15 @@
 package com.alquiler.alquiler_app.application.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.alquiler.alquiler_app.domain.entities.Tool;
 
 public interface ToolService {
     List<Tool> getAllTools();
-    Tool getToolById(Long id);
-    Tool createTool(Tool tool);
-    Tool updateTool(Long id, Tool tool);
-    void deleteTool(Long id);
+    Optional<Tool> getToolById(Long id);
+    Tool saveTool(Tool tool);
+    Optional<Tool> updateTool(Long id, Tool tool);
+    Optional<Tool> deleteTool(Long id);
     List<Tool> searchTools(String name);
-}
+} 
