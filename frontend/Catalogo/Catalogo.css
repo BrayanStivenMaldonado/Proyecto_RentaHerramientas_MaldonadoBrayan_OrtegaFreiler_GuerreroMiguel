@@ -21,21 +21,28 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #3f3f3f;
-  padding: 10px 30px;
+  padding: 10px 40px;
   color: white;
   flex-wrap: wrap;
+}
+
+header a{
+
+  padding: 50px;
+
 }
 
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
-.logo-icon {
-  width: 30px;
-  height: 30px;
-  background-color: #cfdc00;
+.logo-icon img {
+  width: 110px;
+  height: 110px;
+  
 }
 
 nav {
@@ -49,16 +56,15 @@ nav a {
   color: white;
 }
 
-.icons {
+.icons  {
   display: flex;
   gap: 20px;
   margin-top: 10px;
 }
 
-.icons div {
-  width: 20px;
-  height: 20px;
-  background-color: black;
+.icons div img {
+  width: 40px;
+  height: 40px;
   border-radius: 3px;
 }
 
@@ -144,6 +150,10 @@ footer {
     overflow-x: auto;
   }
 
+  header a{
+    padding:0;
+  }
+
   .sidebar h2 {
     display: none;
   }
@@ -175,4 +185,3 @@ footer {
     width: 100%;
   }
 }
-
