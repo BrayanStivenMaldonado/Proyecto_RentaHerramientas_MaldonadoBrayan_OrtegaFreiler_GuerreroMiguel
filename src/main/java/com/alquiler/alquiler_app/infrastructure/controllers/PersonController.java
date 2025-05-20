@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alquiler.alquiler_app.Exceptions.ResourceNotFoundException;
 import com.alquiler.alquiler_app.application.service.PersonService;
 import com.alquiler.alquiler_app.application.service.RoleService;
 import com.alquiler.alquiler_app.domain.DTOs.PersonRequestDTO;
@@ -36,22 +37,21 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable Long id) {
-        Optional<Person> personOptional = personService.getPersonById(id);
-        if(personOptional.isPresent()){
-            return ResponseEntity.ok(personOptional.orElseThrow());
-        }
-        return ResponseEntity.notFound().build();
+        Person person = personService.getPersonById(id)
+        .orElseThrow(()-> new ResourceNotFoundException("persona con ID"+id+"no se pudo encontrar"));
+        
+       return ResponseEntity.ok(person);
     }
     
     @PostMapping
     public ResponseEntity<Person> createPerson(@RequestBody PersonRequestDTO personRequestDTO){
         Role role = roleService.findById(personRequestDTO.getRoleId())
-        .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+        .orElseThrow(() -> new ResourceNotFoundException("Rol no encontrado"));
         Person person = new Person();
         person.setFirstName(personRequestDTO.getFirstName());
         person.setLastName(personRequestDTO.getLastName());
-        person.setIdNumber(person.getIdNumber());
-        person.setEmail(person.getEmail());
+        person.setIdNumber(personRequestDTO.getIdNumber());
+        person.setEmail(personRequestDTO.getEmail());
         person.setRole(role);
 
         Person savedPerson = personService.savePerson(person);
@@ -59,22 +59,31 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateTool(@PathVariable Long id, @RequestBody Person person){
-        Optional<Person> personOptional = personService.getPersonById(id);
-        if(personOptional.isPresent()){
-            Person updatePerson = personOptional.orElseThrow();
-            updatePerson.setFirstName(person.getFirstName());
-            return ResponseEntity.status(HttpStatus.CREATED).body(personService.savePerson(updatePerson));
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody PersonRequestDTO person){
+        Person personupdate = personService.getPersonById(id)
+        .orElseThrow(()-> new ResourceNotFoundException("persona con ID"+id+"no encontrada"));
+
+        Role role = roleService.findById(person.getRoleId())
+        .orElseThrow(() -> new ResourceNotFoundException("Rol con ID " + person.getRoleId() + " no encontrado"));
+       
+        personupdate.setFirstName(person.getFirstName());
+        personupdate.setLastName(person.getLastName());
+        personupdate.setIdNumber(person.getIdNumber());
+        personupdate.setEmail(person.getEmail());
+        personupdate.setRole(role); 
+
+      Person updatedPerson = personService.savePerson(personupdate);
+
+      return ResponseEntity.ok(updatedPerson);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePerson(@PathVariable Long id){
-        Optional<Person> personOptional = personService.getPersonById(id);
-        if(personOptional.isPresent()){
-            return ResponseEntity.ok(personOptional.orElseThrow());
-        }
+        Person person = personService.getPersonById(id)
+        .orElseThrow(()-> new ResourceNotFoundException("persona con ID "+id+" no fue encontrada "));
+
+        personService.deletePerson(id);
+       
         return ResponseEntity.notFound().build();
     }
 }
