@@ -1,7 +1,6 @@
 package com.alquiler.alquiler_app.infrastructure.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,17 +27,19 @@ public class PersonController {
     
     @Autowired
     private PersonService personService;
+
+    @Autowired
     private RoleService roleService;
 
     @GetMapping
-    public List<Person> getAllTools(){
+    public List<Person> getAllPersons(){
         return personService.getAllPersons();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable Long id) {
         Person person = personService.getPersonById(id)
-        .orElseThrow(()-> new ResourceNotFoundException("persona con ID"+id+"no se pudo encontrar"));
+        .orElseThrow(()-> new ResourceNotFoundException("persona con ID "+id+" no se pudo encontrar"));
         
        return ResponseEntity.ok(person);
     }
@@ -46,7 +47,7 @@ public class PersonController {
     @PostMapping
     public ResponseEntity<Person> createPerson(@RequestBody PersonRequestDTO personRequestDTO){
         Role role = roleService.findById(personRequestDTO.getRoleId())
-        .orElseThrow(() -> new ResourceNotFoundException("Rol no encontrado"));
+        .orElseThrow(() -> new ResourceNotFoundException("Rol con ID "+personRequestDTO.getRoleId()+" no encontrado"));
         Person person = new Person();
         person.setFirstName(personRequestDTO.getFirstName());
         person.setLastName(personRequestDTO.getLastName());
@@ -59,31 +60,14 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody PersonRequestDTO person){
-        Person personupdate = personService.getPersonById(id)
-        .orElseThrow(()-> new ResourceNotFoundException("persona con ID"+id+"no encontrada"));
-
-        Role role = roleService.findById(person.getRoleId())
-        .orElseThrow(() -> new ResourceNotFoundException("Rol con ID " + person.getRoleId() + " no encontrado"));
-       
-        personupdate.setFirstName(person.getFirstName());
-        personupdate.setLastName(person.getLastName());
-        personupdate.setIdNumber(person.getIdNumber());
-        personupdate.setEmail(person.getEmail());
-        personupdate.setRole(role); 
-
-      Person updatedPerson = personService.savePerson(personupdate);
-
-      return ResponseEntity.ok(updatedPerson);
+    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody PersonRequestDTO personDto){
+       Person updatedPerson = personService.updatePerson(id, personDto);
+       return ResponseEntity.ok(updatedPerson);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePerson(@PathVariable Long id){
-        Person person = personService.getPersonById(id)
-        .orElseThrow(()-> new ResourceNotFoundException("persona con ID "+id+" no fue encontrada "));
-
         personService.deletePerson(id);
-       
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 }

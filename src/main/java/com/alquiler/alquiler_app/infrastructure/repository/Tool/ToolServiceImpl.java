@@ -1,13 +1,14 @@
 package com.alquiler.alquiler_app.infrastructure.repository.Tool;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alquiler.alquiler_app.Exceptions.ResourceNotFoundException;
 import com.alquiler.alquiler_app.application.service.ToolService;
+import com.alquiler.alquiler_app.domain.DTOs.ToolRequestDTO;
 import com.alquiler.alquiler_app.domain.entities.Tool;
 
 
@@ -24,8 +25,9 @@ public class ToolServiceImpl implements ToolService {
 
     @Transactional(readOnly = true)
     @Override
-    public Optional<Tool> getToolById(Long id) {
-        return toolRepository.findById(id);
+    public Tool getToolById(Long id) {
+        return toolRepository.findById(id)
+        .orElseThrow(() -> new ResourceNotFoundException("Herramienta con ID "+id+" no encontrada"));
     }
 
     @Transactional
@@ -36,24 +38,24 @@ public class ToolServiceImpl implements ToolService {
     
     @Transactional
     @Override
-    public Optional<Tool> updateTool(Long id, Tool tool) {
-        return toolRepository.findById(id).map(toolDb ->{
-            toolDb.setToolName(tool.getToolName());
-            toolDb.setImage(tool.getImage());
-            toolDb.setUsage(tool.getUsage());
-            toolDb.setRentalPrice(tool.getRentalPrice());
-            toolDb.setQuantity(tool.getQuantity());
-            return toolRepository.save(toolDb);
-        });
+    public Tool updateTool(Long id, ToolRequestDTO toolRequestDTO) {
+        Tool tool = getToolById(id);
+        tool.setToolName(toolRequestDTO.getToolName());
+        tool.setImage(toolRequestDTO.getImage());
+        tool.setUsage(toolRequestDTO.getUsage());
+        tool.setRentalPrice(toolRequestDTO.getRentalPrice());
+        tool.setReplacementPrice(toolRequestDTO.getReplacementPrice());
+        tool.setQuantity(toolRequestDTO.getQuantity());
+
+        return toolRepository.save(tool);
     }
 
     @Transactional
     @Override
-    public Optional<Tool> deleteTool(Long id) {
-        return toolRepository.findById(id).map(toolDb -> {
-            toolRepository.delete(toolDb);
-            return toolDb;
-        });
+    public void deleteTool(Long id) {
+        Tool tool = toolRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Herramienta con ID " + id + " no encontrada"));
+        toolRepository.delete(tool);
     }
 
     @Transactional(readOnly = true)

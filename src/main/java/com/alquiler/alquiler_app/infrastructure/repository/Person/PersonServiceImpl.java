@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alquiler.alquiler_app.Exceptions.ResourceNotFoundException;
 import com.alquiler.alquiler_app.application.service.PersonService;
+import com.alquiler.alquiler_app.application.service.RoleService;
+import com.alquiler.alquiler_app.domain.DTOs.PersonRequestDTO;
 import com.alquiler.alquiler_app.domain.entities.Person;
+import com.alquiler.alquiler_app.domain.entities.Role;
 
 @Service
 public class PersonServiceImpl implements PersonService {
 
     @Autowired
     PersonRepository personRepository;
+    RoleService roleService;
 
     @Transactional(readOnly = true)
     @Override
@@ -35,25 +40,28 @@ public class PersonServiceImpl implements PersonService {
 
     @Transactional
     @Override
-    public Optional<Person> updatePerson(Long id, Person person) {
-        return personRepository.findById(id).map(personDb ->{
-            personDb.setFirstName(person.getFirstName());
-            personDb.setLastName(person.getLastName());
-            personDb.setIdNumber(person.getIdNumber());
-            personDb.setPhone(person.getPhone());
-            personDb.setEmail(person.getEmail());
-            personDb.setRole(person.getRole());
-            return personRepository.save(personDb);
-        });
+    public Person updatePerson(Long id, PersonRequestDTO personRequestDTO) {
+    Person existingPerson = personRepository.findById(id)
+        .orElseThrow(() -> new ResourceNotFoundException("Persona con ID " + id + " no fue encontrada"));
+
+    Role role = roleService.findById(personRequestDTO.getRoleId())
+        .orElseThrow(() -> new ResourceNotFoundException("Rol con ID " + personRequestDTO.getRoleId() + " no fue encontrado"));
+
+    existingPerson.setFirstName(personRequestDTO.getFirstName());
+    existingPerson.setLastName(personRequestDTO.getLastName());
+    existingPerson.setIdNumber(personRequestDTO.getIdNumber());
+    existingPerson.setEmail(personRequestDTO.getEmail());
+    existingPerson.setRole(role);
+
+    return personRepository.save(existingPerson);
     }
 
     @Transactional
     @Override
-    public Optional<Person> deletePerson(Long id) {
-        return personRepository.findById(id).map(personDb -> {
-            personRepository.delete(personDb);
-            return personDb;
-        });
+    public void deletePerson(Long id){
+        Person person = personRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Persona con ID "+id+" no fue encontrada"));
+        personRepository.delete(person);
     }
 
     @Transactional(readOnly = true)

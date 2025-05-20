@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.ResourceAccessException;
+
 import com.alquiler.alquiler_app.application.service.ToolService;
 import com.alquiler.alquiler_app.domain.DTOs.ToolRequestDTO;
 import com.alquiler.alquiler_app.domain.entities.Tool;
@@ -31,11 +33,8 @@ public class ToolController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Tool> getToolById(@PathVariable Long id){
-        Optional<Tool> toolOptional = toolService.getToolById(id);
-        if(toolOptional.isPresent()){
-            return ResponseEntity.ok(toolOptional.orElseThrow());
-        }
-        return ResponseEntity.notFound().build();
+        Tool tool = toolService.getToolById(id);
+        return ResponseEntity.ok(tool);
     }
     
     @PostMapping
@@ -53,22 +52,14 @@ public class ToolController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateTool(@PathVariable Long id, @RequestBody Tool tool) {
-        Optional<Tool> toolOptional = toolService.getToolById(id);
-        if(toolOptional.isPresent()){
-            Tool updateTool = toolOptional.orElseThrow();
-            updateTool.setToolName(tool.getToolName());
-            return ResponseEntity.status(HttpStatus.CREATED).body(toolService.saveTool(updateTool));
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<Tool> updateTool(@PathVariable Long id, @RequestBody ToolRequestDTO toolRequestDTO) {
+        Tool updatedTool = toolService.updateTool(id, toolRequestDTO);
+        return ResponseEntity.ok(updatedTool);
     }
 
     @DeleteMapping("/{id}")
-        public ResponseEntity<?> deleteTool(@PathVariable Long id){
-        Optional<Tool> toolOptional = toolService.getToolById(id);
-        if (toolOptional.isPresent()) {
-            return ResponseEntity.ok(toolOptional.orElseThrow());
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<?> deleteTool(@PathVariable Long id){
+        toolService.deleteTool(id);
+        return ResponseEntity.noContent().build();
     } 
 }
