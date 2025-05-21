@@ -1,23 +1,33 @@
 package com.alquiler.alquiler_app.domain.DTOs;
 
+import java.util.List;
+
 public class PersonRequestDTO {
     private String firstName;
     private String lastName;
     private String idNumber;
     private String phone;
     private String email;
-    private Long roleId;
-    
+    private String password;
+
+    private boolean admin;
+    private boolean provider;
+    private List<Long> roleIds;
+
     public PersonRequestDTO() {
     }
 
-    public PersonRequestDTO(String firstName, String lastName, String idNumber, String phone, String email, Long roleId) {
+    public PersonRequestDTO(String firstName, String lastName, String idNumber, String phone, String email,
+            String password, boolean admin, boolean provider, List<Long> roleIds) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idNumber = idNumber;
         this.phone = phone;
         this.email = email;
-        this.roleId = roleId;
+        this.password = password;
+        this.admin = admin;
+        this.provider = provider;
+        this.roleIds = roleIds;
     }
 
     public String getFirstName() {
@@ -60,11 +70,35 @@ public class PersonRequestDTO {
         this.email = email;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public boolean isAdmin() {
+        return admin;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public List<Long> getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(List<Long> roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isProvider() {
+        return provider;
+    }
+
+    public void setProvider(boolean provider) {
+        this.provider = provider;
     }
 }
