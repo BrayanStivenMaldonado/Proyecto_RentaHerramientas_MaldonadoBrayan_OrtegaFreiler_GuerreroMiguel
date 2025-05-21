@@ -18,7 +18,7 @@ import com.alquiler.alquiler_app.infrastructure.repository.Person.PersonReposito
 import com.alquiler.alquiler_app.infrastructure.repository.Reservation.ReservationRepository;
 
 @RestController
-@RequestMapping("/api/reservations")
+@RequestMapping("/api/reservation")
 public class ReservationController {
     
     private final ReservationRepository reservationRepository;
