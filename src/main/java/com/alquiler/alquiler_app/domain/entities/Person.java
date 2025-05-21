@@ -1,18 +1,24 @@
 package com.alquiler.alquiler_app.domain.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "person")
@@ -28,8 +34,14 @@ public class Person {
     private String email;
     private String password;
 
-    @ManyToOne
-    private Role role;
+    @ManyToMany
+    @JoinTable(
+        name = "users_roles",
+        joinColumns = @JoinColumn(name="user_id"),
+        inverseJoinColumns = @JoinColumn(name="role_id"),
+        uniqueConstraints = { @UniqueConstraint(columnNames = {"user_id", "role_id"})}
+    )
+    private List<Role> roles;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -39,23 +51,30 @@ public class Person {
     @JsonManagedReference(value = "person-reservation")
     private List<Reservation> reservations;
 
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private boolean admin;
+
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private boolean provider;
+
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private boolean enabled;
+
     public Person() {
+        roles = new ArrayList<>();
     }
 
-    public Person(Long id, String firstName, String lastName, String idNumber, String phone, String email,
-            String password, Role role, List<Notification> notifications, List<Reservation> reservations) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.idNumber = idNumber;
-        this.phone = phone;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.notifications = notifications;
-        this.reservations = reservations;
+    public boolean isEnabled() {
+        return enabled;
     }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -104,14 +123,6 @@ public class Person {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     public List<Notification> getNotifications() {
         return notifications;
     }
@@ -134,5 +145,29 @@ public class Person {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+            this.admin = admin;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public boolean isProvider() {
+        return provider;
+    }
+
+    public void setProvider(boolean provider) {
+        this.provider = provider;
     }
 }
