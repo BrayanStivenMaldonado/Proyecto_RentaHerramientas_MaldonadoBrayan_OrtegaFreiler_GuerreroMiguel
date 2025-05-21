@@ -1,80 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Constructora MSF - Contacto</title>
-  <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
   <header class="links">
-    <img src="../media/image 8.png" alt="Logo" class="logo" />
+    <img src="../media/image 8.png" alt="Logo" class="logo"/>
     <nav>
       <ul>
         <li><a href="../Catalogo/Catalogo.html">CATALOGO</a></li>
-        <li><a href="../reservas/reservas.html">RESERVAS</a></li>
         <li><a href="../Nosotros/Nosotros.html">NOSOTROS</a></li>
         <li><a href="../Contacto/contacto.html" class="Active">CONTACTO</a></li>
       </ul>
     </nav>
     <div class="buttons">
-      <button class="Usuario_button"><a href="../Login/Login.html"><img src="../media/User.png" alt="Usuario"
-            class="usuario" /></a></button>
-      <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
-          alt="Notificacion" class="notificacion" /></button>
-      <button class="carrito_button"><img src="../media/Carrito.png" alt="Carrito" class="carrito" /></button>
+      <button class="Usuario_button"><img src="../media/User.png" alt="Usuario" class="usuario"/></button>
+      <button class="notificacion_button"><img src="../media/Notificacion.png" alt="Notificacion" class="notificacion"/></button>
+      <button class="carrito_button"><img src="../media/Carrito.png" alt="Carrito" class="carrito"/></button>
     </div>
   </header>
-
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <ul class="nav-menu" id="navMenu">
-    <button class="Usuario_button"><a href="../Login/Login.html"><img src="../media/User.png" alt="Usuario"
-          class="usuario" /></a></button>
-    <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
-        alt="Notificacion" class="notificacion" /></button>
-    <button class="carrito_button"><img src="../media/Carrito.png" alt="Carrito" class="carrito" /></button>
-  </ul>
-
-  <div id="Mensajes">
-    <p>Notificaciones pendientes...</p>
-  </div>
 
   <main class="contenido">
     <section class="informacion">
       <p class="mensaje">
-        ¡Haz que tu proyecto avance sin detenerse!<br />
+        ¡Haz que tu proyecto avance sin detenerse!<br/>
         Escríbenos y consigue las herramientas que necesitas ahora
       </p>
-      <img src="../media/Maquinaria_contacto.png" alt="Maquinaria" class="imagen_maquinaria" />
+      <img src="../media/Maquinaria_contacto.png" alt="Maquinaria" class="imagen_maquinaria"/>
     </section>
 
     <section class="formulario">
       <form action="https://formspree.io/f/mzzroorp" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre" required />
-        <input type="email" name="email" placeholder="Correo" required />
-        <input type="text" name="telefono" placeholder="Telefono" required />
-        <input type="text" name="asunto" placeholder="Asunto" required />
+        <input type="text" name="nombre" placeholder="Nombre" required/>
+        <input type="email" name="email" placeholder="Correo" required/>
+        <input type="text" name="telefono" placeholder="Telefono" required/>
+        <input type="text" name="asunto" placeholder="Asunto" required/>
         <button type="submit">ENVIAR</button>
       </form>
     </section>
 
+    <footer>
+        <div class="footer">
+            <div class="footer_info">
+                <p>© 2023 Constructora MSF. Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
   </main>
-  <footer>
-    <div class="footer">
-      <div class="footer_info">
-        <p>&copy; 2023 Constructora MSF</p>
-      </div>
-    </div>
-  </footer>
 </body>
-<script src="./Notificacion.js"></script>
-
 </html>

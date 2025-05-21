@@ -15,61 +15,45 @@ body {
   min-height: 100vh;
 }
 
-.links {
+
+header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #4f4f4f;
-  padding: 1rem 2rem;
-  max-height: 80px;
+  justify-content: space-between;
+  background-color: #3f3f3f;
+  padding: 10px 30px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+
+header a{
+
+  padding: 50px;
+
 }
 
 .logo {
-  position: relative;
-  width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-nav ul {
-  list-style: none;
+.logo-icon img {
+  width: 110px;
+  height: 110px;
+  
+}
+
+nav {
   display: flex;
-  gap: 2rem;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 nav a {
+  text-decoration: none;
   color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-nav a:hover {
-  color: #C9D85C;
-  transition: 0.5s;
-}
-
-.Active {
-  color: #C1CF57;
-  text-decoration: none;
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.usuario,
-.notificacion {
-  width: 40px;
-}
-
-.carrito {
-  width: 80px;
-}
-
-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
 }
 
 .icons {
@@ -149,64 +133,10 @@ main {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #302F2F;
-  padding: 2rem 0;
+  height: 50px;
+  background-color: #1d1d1d;
 }
 
-footer p {
-  color: white;
-  font-size: 1.2rem;
-}
-
-#Mensajes {
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  width: 90%;
-  max-width: 300px;
-  background-color: rgba(88, 92, 73, 0.8);
-  backdrop-filter: blur(5px);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-/* Estilo del ícono hamburguesa */
-.menu-icon {
-  width: 30px;
-  height: 25px;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.menu-icon span {
-  height: 6px;
-  background-color: #333;
-  border-radius: 2px;
-}
-
-/* Estilo del menú */
-.nav-menu {
-  list-style: none;
-  display: none;
-  gap: 1.5rem;
-}
-
-.nav-menu li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
 
 @media (max-width: 768px) {
   main {
@@ -234,52 +164,22 @@ footer p {
     white-space: nowrap;
   }
 
+  
+header a{
+
+  padding: 0;
+
+}
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
   .icons {
     justify-content: center;
-  }
-  
-  .logo{
-    display: none;
-  }
-  
-  .links{
-    padding: 10px;
-  }
-
-  .buttons{
-    display: none;
-  }
-  .links{
-    display: flex;
-    justify-content: center;
-  }
-
-  .menu-icon {
-    display: flex;
-    margin: 10px;
-    margin-left: 10px;
-  }
-
-  .nav-menu {
-    position: absolute;
-    flex-direction: column;
-    top: 130px;
-    right: 0;
-    width: 100%;
-    background-color: #f8f8f8;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    display: none;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-  .links a {
-    font-size: 21px;
   }
 }
 

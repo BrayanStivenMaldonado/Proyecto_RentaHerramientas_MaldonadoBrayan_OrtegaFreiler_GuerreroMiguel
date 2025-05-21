@@ -8,8 +8,9 @@
 
 body {
   font-family: "Oswald", sans-serif;
+  background-color: #fff;
+  color: #000;
 }
-
 
 /* Navbar */
 .links {
@@ -142,7 +143,6 @@ button {
   background-color: #b0c04d;
 }
 
-/* Footer */
 footer {
   display: flex;
   justify-content: center;
@@ -156,87 +156,14 @@ footer p {
   font-size: 1.2rem;
 }
 
-#Mensajes {
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  width: 90%;
-  max-width: 300px;
-  background-color: rgba(88, 92, 73, 0.8);
-  backdrop-filter: blur(5px);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-/* Estilo del ícono hamburguesa */
-.menu-icon {
-  width: 30px;
-  height: 25px;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.menu-icon span {
-  height: 6px;
-  background-color: #333;
-  border-radius: 2px;
-}
-
-/* Estilo del menú */
-.nav-menu {
-  list-style: none;
-  display: none;
-  gap: 1.5rem;
-}
-
-.nav-menu li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .menu-icon {
-    display: flex;
-    margin: 10px;
-    margin-left: 10px;
-  }
-
-  .nav-menu {
-    position: absolute;
-    flex-direction: column;
-    top: 130px;
-    right: 0;
-    width: 100%;
-    background-color: #f8f8f8;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    display: none;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
   .contenido {
     flex-direction: column;
     padding: 2rem;
   }
 
-  .informacion,
-  .formulario {
+  .informacion, .formulario {
     max-width: 100%;
   }
 
@@ -245,39 +172,8 @@ footer p {
     text-align: center;
   }
 
-  .imagen_maquinaria {
+  .imagen_madera {
     position: static;
     margin-top: 2rem;
-  }
-
-  .buttons img{
-    display: none;
-  }
-
-  #Mensajes {
-    right: 50%;
-    top: 83px;
-    transform: translateX(50%);
-    width: 95%;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .buttons button img {
-    width: 24px;
-    height: 24px;
-  }
-  .links a {
-    font-size: 21px;
-  }
-  .links{
-    padding: 10px;
-  }
-  .logo{
-    display: none;
   }
 }
