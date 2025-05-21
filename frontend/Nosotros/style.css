@@ -72,7 +72,7 @@ button {
 
 /* Imagen principal */
 .tractor {
-  max-width: 1600px;
+  max-width: 1920px;
   width: 100%;
 }
 
@@ -102,7 +102,17 @@ button {
   margin-top: 2rem;
   color: #5F5F5F;
 }
-
+/*
+display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1200px;
+  text-align: justify;
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: "Oswald", sans-serif;
+*/
 .Historia {
   display: flex;
   flex-direction: column;
@@ -112,21 +122,25 @@ button {
   text-align: justify;
   font-size: 24px;
   background-color: #AEAEAE;
+  line-height: 1.5;
+  font-family: "Oswald", sans-serif;
 }
 
 .Historia h3 {
-  margin: 1rem 10rem;
+  margin: 1rem 21rem;
   color: #C1CF57;
 }
 
 .Historia p {
   flex-direction: column;
   align-items: stretch;
-  margin: 10px 10rem;
+  margin: 10px 21rem;
 }
 
 .Direccion h3 {
-  margin: 1rem 12rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
   font-size: 24px;
   background-color: #f3f3f3;
 }
@@ -168,6 +182,54 @@ footer p {
   font-size: 1.2rem;
 }
 
+#Mensajes {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  width: 90%;
+  max-width: 300px;
+  background-color: rgba(88, 92, 73, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Estilo del ícono hamburguesa */
+.menu-icon {
+  width: 30px;
+  height: 25px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-icon span {
+  height: 6px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Estilo del menú */
+.nav-menu {
+  list-style: none;
+  display: none;
+  gap: 1.5rem;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
 @media (max-width: 768px) {
   .Historia h3{
     margin: 10px auto;
@@ -178,5 +240,95 @@ footer p {
     margin: 0 auto;
   }
 
+  .logo{
+    display: none;
+  }
   
+  .links{
+    padding: 10px;
+  }
+
+  .buttons{
+    display: none;
+  }
+
+  .tractor {
+    max-width: 100%;
+    height: auto;
+  }
+  .Nosotros {
+    padding: 1rem;
+    font-size: 18px;
+  }
+  .Historia {
+    padding: 1rem;
+    font-size: 18px;
+  }
+  .Historia h3 {
+    margin: 1rem auto;
+  }
+  .Historia p {
+    margin: 1rem auto;
+  }
+  .localizacion {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info {
+    margin: 1rem auto;
+  }
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+  footer {
+    padding: 1rem 0;
+  }
+  footer p {
+    font-size: 1rem;
+  }
+  .links{
+    display: flex;
+    justify-content: center;
+  }
+   .menu-icon {
+    display: flex;
+    margin: 10px;
+    margin-left: 10px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    flex-direction: column;
+    top: 86px;
+    right: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .links a{
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .links a {
+    font-size: 14px;
+  }
+  #Mensajes {
+    width: 90%;
+    max-width: 300px;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    top: 286px;
+  }
 }
