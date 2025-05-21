@@ -2,6 +2,8 @@ package com.alquiler.alquiler_app.domain.entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class Report {
 
     @OneToOne
     @JoinColumn(name = "tool_id")
+    @JsonBackReference(value = "tool-report")
     private Tool tool;
 
     private Integer rentals;

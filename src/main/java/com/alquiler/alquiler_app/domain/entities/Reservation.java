@@ -3,6 +3,9 @@ package com.alquiler.alquiler_app.domain.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,18 +24,22 @@ public class Reservation {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private Person user;
 
     private LocalDate rentalDate;
     private LocalDate returnDate;
 
     @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "reservation-tools")
     private List<ReservationTool> tools;
 
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "reservation-return")
     private Return returnInfo;
 
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "reservation-payment")
     private Payment payment;
 
     public Reservation() {

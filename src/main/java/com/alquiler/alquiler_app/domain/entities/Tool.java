@@ -2,6 +2,7 @@ package com.alquiler.alquiler_app.domain.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +26,11 @@ public class Tool {
     private Integer quantity;
 
     @OneToMany(mappedBy = "tool")
+    @JsonIgnore
     private List<ReservationTool> reservations;
 
     @OneToOne(mappedBy = "tool")
+    @JsonIgnore
     private Report report;
 
     public Tool() {

@@ -2,6 +2,7 @@ package com.alquiler.alquiler_app.infrastructure.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,17 +54,20 @@ public class ReservationController {
     }
 
     @PutMapping("/{id}")
-    public Reservation updateReservation(@PathVariable Long id, @RequestBody Reservation updatedReservation) {
+    public ResponseEntity<?> updateReservation(@PathVariable Long id, @RequestBody Reservation updatedReservation) {
         return reservationRepository.findById(id).map(reservation -> {
             reservation.setRentalDate(updatedReservation.getRentalDate());
             reservation.setReturnDate(updatedReservation.getReturnDate());
 
-            if (updatedReservation.getUser() != null) {
-                Long userId = updatedReservation.getUser().getId();
-                Person user = personRepository.findById(updatedReservation.getUser().getId()).orElse(null);
+             if (updatedReservation.getUser() != null) {
+            Long userId = updatedReservation.getUser().getId();
+            Person user = personRepository.findById(userId).orElse(null);
+            if (user != null) {
                 reservation.setUser(user);
             }
-            return reservationRepository.save(reservation);
-        }).orElse(null);
+        }
+        reservationRepository.save(reservation);
+        return ResponseEntity.ok(reservation);  // Devolver el objeto actualizado con un 200 OK
+    }).orElse(ResponseEntity.notFound().build());
     }
 }

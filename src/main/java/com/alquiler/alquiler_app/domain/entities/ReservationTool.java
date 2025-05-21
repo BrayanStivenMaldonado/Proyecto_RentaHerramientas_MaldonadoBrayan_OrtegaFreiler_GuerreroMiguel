@@ -1,5 +1,7 @@
 package com.alquiler.alquiler_app.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,9 +17,11 @@ public class ReservationTool {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private Reservation reservation;
 
     @ManyToOne
+    @JsonIgnore
     private Tool tool;
 
     private Integer quantity;
