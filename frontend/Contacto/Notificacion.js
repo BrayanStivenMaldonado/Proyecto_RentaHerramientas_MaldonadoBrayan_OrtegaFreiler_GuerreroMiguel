@@ -9,5 +9,11 @@ function Mostrar_Notificaciones() {
 
 function toggleMenu() {
     const menu = document.getElementById("navMenu");
+    const mesanje = document.getElementById("Mensajes");
+
     menu.classList.toggle("active");
+
+    if (!menu.classList.contains("active")) {
+        mesanje.style.display = "none";
+    }
 }
