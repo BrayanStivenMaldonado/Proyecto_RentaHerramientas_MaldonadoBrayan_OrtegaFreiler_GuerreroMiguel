@@ -47,5 +47,4 @@ public class AuthService {
             .token(jwtService.getToken(person))
             .build();
     }
-
 }

@@ -14,7 +14,7 @@
         <div class="iniciarSesion">
             <div class="Formulario">
                 <h1>Inicia sesión</h1>
-                <form action="" method="POST">
+                <form id="loginForm">
                     <label for="username" class="user">Usuario</label>
                     <input type="text" id="username" name="username" required />
 
@@ -26,13 +26,44 @@
                         </button>
                     </div>
 
-                    <button type="submit" class="button"><a href="../Catalogo/Catalogo.html">ENTRAR</a></button>
+                    <button type="submit" class="button">ENTRAR</button>
                     <button type="button" class="button">
                         <a href="../Registro/Registro.html">REGISTRAR</a></button>
-                    </form>
+                </form>
             </div>
         </div>
     </div>
 </body>
-<script src="./Password.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Evita que recargue la página
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (!response.ok) {
+            alert("Usuario o contraseña incorrectos.");
+            return;
+        }
+
+        const data = await response.json();
+        localStorage.setItem('token', data.token); // Guarda el token JWT
+
+        // Redirige a la página protegida
+        window.location.href = "../Templates/Catalogo.html";
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        alert('Ocurrió un error al iniciar sesión.');
+    }
+});
+</script>
 </html>

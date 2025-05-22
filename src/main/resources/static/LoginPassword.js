@@ -11,3 +11,25 @@ function togglePasswordVisibility() {
   }
 }
 
+const boton = document.getElementById("botonI").addEventListener("click", login);
+
+async function loginUser(username, password) {
+    const response = await fetch('http://localhost:8080/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error('Login fallido');
+    }
+
+    const data = await response.json();
+    localStorage.setItem('token', data.token); // Guarda el token JWT en localStorage
+    console.log('Token:', data.token);
+}
