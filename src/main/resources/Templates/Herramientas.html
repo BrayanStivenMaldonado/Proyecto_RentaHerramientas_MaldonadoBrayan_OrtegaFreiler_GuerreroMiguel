@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler MSF - Herramientas</title>
+    <link rel="stylesheet" href="../static/Herramienta.css">
+    <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="links">
+        <img src="../media/image 8.png" alt="Logo" class="logo" />
+        <nav>
+            <ul>
+                <li><a href="../Catalogo/Catalogo.html" class="Active">MIS HERRAMIENTAS</a></li>
+                <li><a href="../reservas/reservas.html">RESERVAS</a></li>
+                <li><a href="../Inventario/Inventario.html">FACTURACION</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button class="Usuario_button"><a href="../Login/Login.html"><img src="../media/User.png" alt="Usuario"
+                        class="usuario" /></a></button>
+            <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                    alt="Notificacion" class="notificacion" /></button>
+        </div>
+    </header>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+        <button class="Usuario_button"><a href="../Login/Login.html"><img src="../media/User.png" alt="Usuario"
+                    class="usuario" /></a></button>
+        <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                alt="Notificacion" class="notificacion" /></button>
+    </ul>
+
+    <div id="Mensajes">
+        <p>Notificaciones pendientes...</p>
+    </div>
+
+    <div class="MenuVertical">
+        <a href="../Inventario/Inventario.html">INVENTARIO</a>
+        <a href="../Herramientas/Herramientas.html" class="Active_menu">AÑADIR HERRAMIENTA</a>
+    </div>
+
+    <main>
+        <div class="form-container">
+            <form id="addToolForm">
+                <div class="form-left">
+                    <label for="imageUrlInput">URL Imagen</label>
+                    <input type="text" id="imageUrlInput" name="ToolUrl" placeholder="URL de la imagen" required>
+
+                    <label for="toolName">Nombre herramienta</label>
+                    <input type="text" id="toolName" name="toolName" required>
+
+                    <label for="ToolPrice">Precio Alquiler</label>
+                    <input type="number" id="ToolPrice" name="ToolPrice" required>
+
+                    <label for="toolQuantity">Cantidad</label>
+                    <input type="number" id="toolQuantity" name="toolQuantity" required>
+                </div>
+
+                <div class="form-right">
+                    <div class="image-preview">
+                        <p>IMAGEN</p>
+                        <img id="preview" src="../media/Imagen Default.png" alt="Vista previa" />
+                    </div>
+
+                    <label for="ToolDescription">Descripción</label>
+                    <textarea id="ToolDescription" name="ToolDescription" rows="5" required></textarea>
+
+                    <button type="submit" class="Imagen_Submit">AGREGAR</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_info">
+                <p>© 2023 Constructora MSF</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../static/NotificacionHerramienta.js"></script>
+
+</html>

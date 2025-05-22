@@ -1,11 +1,3 @@
-const token = localStorage.getItem("token");
-
-fetch('http://localhost:8080/api/tools', {
-    headers: {
-        'Authorization': 'Bearer ' + token
-    }
-});
-
 function Mostrar_Notificaciones() {
     const Mensajes = document.getElementById("Mensajes");
     if (Mensajes.style.display == "none") {
