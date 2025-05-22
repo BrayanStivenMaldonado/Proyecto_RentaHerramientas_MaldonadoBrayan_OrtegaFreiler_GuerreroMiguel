@@ -1,0 +1,123 @@
+/* styles.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.topbar {
+  background-color: #3a3a3a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.topbar h1 {
+  color: #c1df00;
+  font-size: 16px;
+}
+
+.topbar .icons {
+  display: flex;
+  gap: 20px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #c1df00;
+  width: 200px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 30px;
+  color: #000;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.filter {
+  background: #fff;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.alquiler-card {
+  background-color: #3a3a3a;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.alquiler-card .info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.alquiler-card button {
+  background-color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.footer {
+  background-color: #1e1e1e;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .alquiler-card {
+    flex-direction: column;
+  }
+
+  .alquiler-card button {
+    margin-top: 10px;
+  }
+}

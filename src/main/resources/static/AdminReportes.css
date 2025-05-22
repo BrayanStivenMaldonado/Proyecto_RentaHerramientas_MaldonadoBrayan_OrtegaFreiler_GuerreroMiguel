@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Oswald';
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #444;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  color: #c3d347;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #c3d347;
+  padding: 20px 10px;
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #333;
+  overflow: auto;
+}
+
+.content {
+  background-color: #eee;
+  color: black;
+  padding: 20px;
+}
+
+/* Gráfico de barras */
+.chart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  background: #ddd;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.bar {
+  width: 40px;
+  background: #444;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Tabla de pagos */
+.payment-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: #000;
+  min-width: 600px;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.progress-bar {
+  height: 15px;
+  background-color: #c3d347;
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+}
+
+.progress-fill {
+  background-color: #444;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .chart {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .bar {
+    margin: 5px 0;
+  }
+}
