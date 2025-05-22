@@ -28,7 +28,7 @@
 
                     <button type="submit" class="button">ENTRAR</button>
                     <button type="button" class="button">
-                        <a href="../Registro/Registro.html">REGISTRAR</a></button>
+                        <a href="Registro.html">REGISTRAR</a></button>
                 </form>
             </div>
         </div>
@@ -59,7 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         localStorage.setItem('token', data.token); // Guarda el token JWT
 
         // Redirige a la página protegida
-        window.location.href = "../Templates/Catalogo.html";
+        window.location.href = "Catalogo.html";
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
         alert('Ocurrió un error al iniciar sesión.');
