@@ -1,33 +1,41 @@
 package com.alquiler.alquiler_app.domain.DTOs;
 
-import java.util.List;
+import com.alquiler.alquiler_app.domain.entities.Role;
 
 public class PersonRequestDTO {
     private String firstName;
     private String lastName;
     private String idNumber;
     private String phone;
-    private String email;
+    private String username;
     private String password;
+    private Role role;
 
-    private boolean admin;
-    private boolean provider;
-    private List<Long> roleIds;
 
     public PersonRequestDTO() {
     }
 
-    public PersonRequestDTO(String firstName, String lastName, String idNumber, String phone, String email,
-            String password, boolean admin, boolean provider, List<Long> roleIds) {
+    public PersonRequestDTO(String username, String firstName, String lastName, String idNumber, String phone, String password, Role role) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.idNumber = idNumber;
         this.phone = phone;
-        this.email = email;
+        this.username = username;
         this.password = password;
-        this.admin = admin;
-        this.provider = provider;
-        this.roleIds = roleIds;
+        this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getFirstName() {
@@ -62,28 +70,12 @@ public class PersonRequestDTO {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getusername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
-
-    public List<Long> getRoleIds() {
-        return roleIds;
-    }
-
-    public void setRoleIds(List<Long> roleIds) {
-        this.roleIds = roleIds;
+    public void setusername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -94,11 +86,7 @@ public class PersonRequestDTO {
         this.password = password;
     }
 
-    public boolean isProvider() {
-        return provider;
-    }
-
-    public void setProvider(boolean provider) {
-        this.provider = provider;
+    public Role getRole() {
+        return role;
     }
 }

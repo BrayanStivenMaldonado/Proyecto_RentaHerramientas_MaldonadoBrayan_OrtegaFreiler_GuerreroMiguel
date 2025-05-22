@@ -31,6 +31,11 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @PostMapping(value = "demo")
+    public String welcome() {
+        return "Welcome to secure endpoint";
+    }
+
     @GetMapping
     public List<Person> getAllPersons(){
         return personService.getAllPersons();

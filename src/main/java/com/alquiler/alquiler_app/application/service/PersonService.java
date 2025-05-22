@@ -13,5 +13,5 @@ public interface PersonService {
     Person updatePerson(Long id, PersonRequestDTO personRequestDTO);
     void deletePerson(Long id);
     List<Person> searchPersons(String name);
-    boolean existsByEmail(String email);
+    boolean existsByUsername(String Username);
 }

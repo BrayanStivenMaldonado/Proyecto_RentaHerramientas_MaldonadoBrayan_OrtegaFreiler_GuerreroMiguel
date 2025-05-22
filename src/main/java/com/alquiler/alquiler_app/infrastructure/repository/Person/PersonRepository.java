@@ -11,6 +11,6 @@ import com.alquiler.alquiler_app.domain.entities.Person;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long>{
     List<Person> findByFirstName(String firstName);
-    boolean existsByEmail(String email);
-    Optional<Person> findByEmail(String email);
+    boolean existsByUsername(String Username);
+    Optional<Person> findByUsername(String username);
 }
