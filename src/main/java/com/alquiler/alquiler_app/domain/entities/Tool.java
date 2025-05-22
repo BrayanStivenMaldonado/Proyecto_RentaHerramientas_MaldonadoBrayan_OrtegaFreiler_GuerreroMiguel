@@ -20,7 +20,7 @@ public class Tool {
 
     private String toolName;
     private String image;
-    private String usage;
+    private String category;
     private Double rentalPrice;
     private Double replacementPrice;
     private Integer quantity;
@@ -60,12 +60,12 @@ public class Tool {
         this.image = image;
     }
 
-    public String getUsage() {
-        return usage;
+    public String getcategory() {
+        return category;
     }
 
-    public void setUsage(String usage) {
-        this.usage = usage;
+    public void setcategory(String category) {
+        this.category = category;
     }
 
     public Double getRentalPrice() {

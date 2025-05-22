@@ -40,7 +40,7 @@ public class ToolController {
         Tool tool = new Tool();
         tool.setToolName(toolRequestDTO.getToolName());
         tool.setImage(toolRequestDTO.getImage());
-        tool.setUsage(toolRequestDTO.getUsage());
+        tool.setcategory(toolRequestDTO.getUsage());
         tool.setRentalPrice(toolRequestDTO.getRentalPrice());
         tool.setReplacementPrice(toolRequestDTO.getReplacementPrice());
         tool.setQuantity(toolRequestDTO.getQuantity());
