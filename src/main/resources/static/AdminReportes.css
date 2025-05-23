@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Oswald';
+  font-family: "Oswald", sans-serif;
   background-color: #222;
   color: #fff;
   display: flex;
@@ -23,7 +23,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  color: #c3d347;
+  color: #c1cf57;
 }
 
 .container {
@@ -33,7 +33,7 @@ body {
 
 .sidebar {
   width: 220px;
-  background-color: #c3d347;
+  background-color: #c1cf57;
   padding: 20px 10px;
   flex-shrink: 0;
 }
@@ -110,7 +110,7 @@ body {
 
 .progress-bar {
   height: 15px;
-  background-color: #c3d347;
+  background-color: #c1cf57;
   width: 100%;
   position: relative;
   border-radius: 5px;

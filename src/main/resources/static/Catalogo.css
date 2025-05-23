@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Oswald';
+  font-family: "Oswald", sans-serif;
 }
 
 body {
@@ -40,12 +40,12 @@ nav a {
 }
 
 nav a:hover {
-  color: #C9D85C;
+  color: #c1cf57;
   transition: 0.5s;
 }
 
 .Active {
-  color: #C1CF57;
+  color: #c1cf57;
   text-decoration: none;
 }
 
@@ -95,7 +95,7 @@ main {
 
 .sidebar {
   width: 200px;
-  background-color: #d6df64;
+  background-color: #c1cf57;
   padding: 20px;
 }
 

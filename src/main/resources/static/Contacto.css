@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
 }
 
 
@@ -128,7 +128,7 @@ button {
 }
 
 .formulario button {
-  background-color: #C9D85C;
+  background-color: #c1cf57;
   padding: 0.7rem;
   width: 100%;
   border: none;
@@ -139,7 +139,7 @@ button {
 }
 
 .formulario button:hover {
-  background-color: #b0c04d;
+  background-color: #c1cf57;
 }
 
 /* Footer */
