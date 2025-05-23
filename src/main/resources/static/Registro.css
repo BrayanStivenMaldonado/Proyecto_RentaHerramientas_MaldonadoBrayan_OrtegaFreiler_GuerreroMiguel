@@ -187,6 +187,24 @@ a {
   color: #FFFFFF;
 }
 
+#iniciar{
+  margin-left: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+#iniciar a{
+  font-size: 0.9rem;
+  
+  transition: .2s;
+}
+
+#iniciar a:hover{
+  font-size: 0.9rem;
+  color: #000;
+  transition: .2s;
+}
+
 @media (max-width: 900px) {
   .container {
     flex-direction: column-reverse;

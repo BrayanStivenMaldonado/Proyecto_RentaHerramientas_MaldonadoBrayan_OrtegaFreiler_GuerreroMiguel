@@ -38,13 +38,13 @@ public class AuthService {
             .password(passwordEncoder.encode(request.getPassword()))
             .firstName(request.getFirstname())
             .lastName(request.getLastname())
-            .role(Role.USER)
+            .role(request.getRole())
             .build();
         
         personRepository.save(person);
         
         return AuthResponse.builder()
             .token(jwtService.getToken(person))
-            .build();
+            .build(); 
     }
 }

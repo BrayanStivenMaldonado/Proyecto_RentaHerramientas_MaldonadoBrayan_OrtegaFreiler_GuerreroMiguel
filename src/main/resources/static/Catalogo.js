@@ -1,9 +1,12 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const productosContainer = document.querySelector('.productos');
+  const token = localStorage.getItem('token'); // Recupera el token
 
-  fetch('http://localhost:8080/api/tools')
+  fetch('http://localhost:8080/api/tools', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
     .then(response => {
       if (!response.ok) {
         throw new Error('No se pudo obtener las herramientas');
@@ -11,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then(data => {
-      productosContainer.innerHTML = ''; // Limpiar por si hay contenido anterior
+      productosContainer.innerHTML = '';
       data.forEach(tool => {
         const producto = document.createElement('div');
         producto.classList.add('producto');
 
         producto.innerHTML = `
           <div>
-            <a href="../Herramientas/Herramientas.html" class="Link_Herramientas">
+            <a href="Herramientas.html" class="Link_Herramientas">
               <img src="../media/${tool.image}" alt="${tool.toolName}">
             </a>
           </div>
