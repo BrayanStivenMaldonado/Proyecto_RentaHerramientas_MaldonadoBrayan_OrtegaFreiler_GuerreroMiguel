@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler MSF - Facturacion</title>
+    <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/FacturacionSolicitudes.css" />
+</head>
+
+<body>
+    <header class="links">
+        <img src="../media/image 8.png" alt="Logo" class="logo" />
+        <nav>
+            <ul>
+                <li><a href="Catalogo.html" class="Active">MIS HERRAMIENTAS</a></li>
+                <li><a href="reservas.html">RESERVAS</a></li>
+                <li><a href="Inventario.html">FACTURACION</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
+                        class="usuario" /></a></button>
+            <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                    alt="Notificacion" class="notificacion" /></button>
+        </div>
+    </header>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+        <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
+                    class="usuario" /></a></button>
+        <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                alt="Notificacion" class="notificacion" /></button>
+        <button class="carrito_button"><img src="../media/Carrito.png" alt="Carrito" class="carrito" /></button>
+    </ul>
+
+    <div id="Mensajes">
+        <p>Notificaciones pendientes...</p>
+    </div>
+
+    <div class="main">
+        <aside>
+            <a href="../Templates/FacturacionSolicitudes.html" class="activo">SOLICITUDES</a>
+            <a href="../Templates/FacturacionDevoluciones.html">DEVOLUCIONES</a>
+            <a href="../Templates/FacturacionPagos.html">PAGOS</a>
+        </aside>
+
+        <section class="contenido">
+            <div class="filtros">
+                <button>Filtrar</button>
+                <span>Fecha <strong class="Fecha_Num">22/05/2025</strong></span>
+                <button>Cambiar estado</button>
+            </div>
+
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <div class="estado pendiente">ESTADO: Pendiente</div>
+                    <h4>Herramienta: Martillo</h4>
+                    <img src="../media/Martillo.png" alt="Martillo">
+                    <h5 class="User_name">Usuario: Pepito Perez</h5>
+                    <p class="Tool_Description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                        nostrum blanditiis architecto ullam fugiat perferendis magnam quam corporis ipsam distinctio,
+                        incidunt, obcaecati suscipit nulla exercitationem omnis, quidem vel dolores adipisci.</p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="estado aceptado">ESTADO: Aceptado</div>
+                    <h4>Herramienta: Martillo</h4>
+                    <img src="../media/Martillo.png" alt="Martillo">
+                    <h5 class="User_name">Usuario: Pepito Perez</h5>
+                    <p class="Tool_Description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                        nostrum blanditiis architecto ullam fugiat perferendis magnam quam corporis ipsam distinctio,
+                        incidunt, obcaecati suscipit nulla exercitationem omnis, quidem vel dolores adipisci.</p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="estado rechazado">ESTADO: Rechazado</div>
+                    <h4>Herramienta: Martillo</h4>
+                    <img src="../media/Martillo.png" alt="Martillo">
+                    <h5 class="User_name">Usuario: Pepito Perez</h5>
+                    <p class="Tool_Description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                        nostrum blanditiis architecto ullam fugiat perferendis magnam quam corporis ipsam distinctio,
+                        incidunt, obcaecati suscipit nulla exercitationem omnis, quidem vel dolores adipisci.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_info">
+                <p>&copy; 2025 Constructora MSF</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../static/FacturacionSolicitudes.js"></script>
+
+</html>
