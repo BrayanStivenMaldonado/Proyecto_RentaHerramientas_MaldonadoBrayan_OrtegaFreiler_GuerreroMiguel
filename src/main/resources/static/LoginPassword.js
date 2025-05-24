@@ -11,25 +11,38 @@ function togglePasswordVisibility() {
   }
 }
 
-// const boton = document.getElementById("botonI").addEventListener("click", loginUser);
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
 
-// async function loginUser(username, password) {
-//     const response = await fetch('http://localhost:8080/auth/login', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             username: username,
-//             password: password
-//         })
-//     });
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-//     if (!response.ok) {
-//         throw new Error('Login fallido');
-//     }
+  try {
+    const response = await fetch('http://localhost:8080/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
 
-//     const data = await response.json();
-//     localStorage.setItem('token', data.token); // Guarda el token JWT en localStorage
-//     console.log('Token:', data.token);
-// }
+    if (!response.ok) {
+      alert("Usuario o contraseña incorrectos.");
+      return;
+    }
+
+    const data = await response.json();
+    localStorage.setItem('token', data.token); // Guarda el token JWT
+
+    if (data.role === 'ADMIN') {
+      window.location.href = 'AdminPanel.html';  
+    } else if (data.role === 'USER') {
+      window.location.href = 'Catalogo.html';
+    } else if (data.role === 'PROVIDER') {
+      window.location.href = 'Inventario.html';
+    }
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    alert('Ocurrió un error al iniciar sesión.');
+  }
+});

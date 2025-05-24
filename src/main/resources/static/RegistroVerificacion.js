@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
       firstname: nombre,
       lastname: apellido,
       username: email,
-      password: password
+      password: password,
+      role: "USER"
     };
 
     try {

@@ -7,7 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.alquiler.alquiler_app.domain.entities.Person;
-import com.alquiler.alquiler_app.domain.entities.Role;
 import com.alquiler.alquiler_app.infrastructure.repository.Person.PersonRepository;
 import com.alquiler.alquiler_app.jwt.JwtService;
 
@@ -26,9 +25,12 @@ public class AuthService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         UserDetails user = personRepository.findByUsername(request.getUsername()).orElseThrow();
         String token = jwtService.getToken(user);
+        Person person = personRepository.findByUsername(request.getUsername())
+        .orElseThrow();
 
         return AuthResponse.builder()
             .token(token)
+            .role(person.getRole().name())
             .build();
     }
 
