@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alquiler MSF - Reservas</title>
+    <link rel="stylesheet" href="../static/ReservasSolicitudes.css">
+    <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="links">
+        <img src="../media/image 8.png" alt="Logo" class="logo" />
+        <nav>
+            <ul>
+                <li><a href="./Catalogo.html">MIS HERRAMIENTAS</a></li>
+                <li><a href="./ReservasDevoluciones.html" class="Active">RESERVAS</a></li>
+                <li><a href="./FacturacionSolicitudes.html">FACTURACION</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                    alt="Notificacion" class="notificacion" />
+            </button>
+            <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
+                        class="usuario" /></a>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+        <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
+                alt="Notificacion" class="notificacion" /></button>
+        <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
+                    class="usuario" /></a></button>
+    </ul>
+
+    <div id="Mensajes">
+        <p>Notificaciones pendientes...</p>
+    </div>
+
+    <main class="contenedor">
+        <aside class="sidebar">
+            <a href="./ReservasSolicitudes.html" class="activo">SOLICITUDES</a>
+            <a href="./ReservasDevoluciones.html">DEVOLUCIONES</a>
+        </aside>
+
+        <section class="contenido">
+            <div class="filtros">
+                <button>Filtrar</button>
+            </div>
+            <div class="devolucion">
+                <div class="bloque">informacion de la solicitud de alquiler</div>
+                <div class="botones">
+                    <button class="btn-aceptar"></button>
+                    <button class="btn-rechazar"></button>
+                </div>
+            </div>
+            <div class="devolucion">
+                <div class="bloque">informacion de la solicitud de alquiler</div>
+                <div class="botones">
+                    <button class="btn-aceptar"></button>
+                    <button class="btn-rechazar"></button>
+                </div>
+            </div>
+            <div class="devolucion">
+                <div class="bloque">informacion de la solicitud de alquiler</div>
+                <div class="botones">
+                    <button class="btn-aceptar"></button>
+                    <button class="btn-rechazar"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_info">
+                <p>&copy; 2025 Constructora MSF</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../static/ReservasSolicitudes.js"></script>
+
+</html>
