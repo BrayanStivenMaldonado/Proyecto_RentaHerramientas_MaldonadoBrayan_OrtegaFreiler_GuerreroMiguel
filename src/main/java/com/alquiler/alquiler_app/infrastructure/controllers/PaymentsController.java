@@ -3,11 +3,15 @@ package com.alquiler.alquiler_app.infrastructure.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alquiler.alquiler_app.application.service.PaymentService;
 import com.alquiler.alquiler_app.domain.entities.Payment;
 import com.alquiler.alquiler_app.domain.entities.Reservation;
 import com.alquiler.alquiler_app.infrastructure.repository.Payments.PaymentsRepository;
 import com.alquiler.alquiler_app.infrastructure.repository.Reservation.ReservationRepository;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,9 +25,17 @@ public class PaymentsController {
     private final PaymentsRepository paymentsRepository;
     private final ReservationRepository reservationRepository;
 
+    @Autowired
+    PaymentService paymentService;
+
     public PaymentsController(PaymentsRepository paymentsRepository, ReservationRepository reservationRepository) {
         this.paymentsRepository = paymentsRepository;
         this.reservationRepository = reservationRepository;
+    }
+
+    @GetMapping
+    public List<Payment> getAllPersons(){
+        return paymentService.getAllPayments();
     }
 
     @PostMapping

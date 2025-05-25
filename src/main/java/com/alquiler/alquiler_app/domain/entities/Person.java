@@ -78,10 +78,6 @@ public class Person implements UserDetails{
         this.lastName = lastName;
     }
 
-    public String getusername() {
-        return username;
-    }
-
     public void setusername(String username) {
         this.username = username;
     }
