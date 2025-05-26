@@ -3,6 +3,7 @@ package com.alquiler.alquiler_app.infrastructure.repository.Person;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,9 @@ import com.alquiler.alquiler_app.domain.entities.Person;
 
 @Service
 public class PersonServiceImpl implements PersonService {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     PersonRepository personRepository;
@@ -52,10 +56,12 @@ public class PersonServiceImpl implements PersonService {
         existingPerson.setFirstName(personRequestDTO.getFirstName());
         existingPerson.setLastName(personRequestDTO.getLastName());
         existingPerson.setusername(personRequestDTO.getUsername());
+        existingPerson.setPassword(personRequestDTO.getPassword());
         existingPerson.setRole(personRequestDTO.getRole());
 
         if (personRequestDTO.getPassword() != null && !personRequestDTO.getPassword().isBlank()) {
-            existingPerson.setPassword(personRequestDTO.getPassword()); // sin cifrado
+            String encodedPassword = passwordEncoder.encode(personRequestDTO.getPassword());
+            existingPerson.setPassword(encodedPassword);
         }
 
         return personRepository.save(existingPerson);

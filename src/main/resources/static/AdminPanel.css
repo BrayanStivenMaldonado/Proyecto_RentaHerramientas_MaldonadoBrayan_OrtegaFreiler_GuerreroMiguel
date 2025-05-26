@@ -89,8 +89,25 @@ body {
   flex: 1;
 }
 
+.reg-up{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 .filter {
   margin-bottom: 20px;
+}
+
+#filtro{
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+#tipo{
+  width: 6vw;
+  height: 2vw;
+  font-size: 18px;
+  font-family: "Oswald";
 }
 
 .filter label {
@@ -135,6 +152,130 @@ tbody tr:hover {
   margin-top: auto;
 }
 
+.register-person {
+  margin-left: 7vw;
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+.register-person h2 {
+  margin-bottom: 15px;
+  color: #34495e;
+  font-size: 1.5rem;
+}
+
+.register-person form div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-person label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.register-person input[type="text"],
+.register-person input[type="email"],
+.register-person input[type="password"],
+.register-person select {
+  padding: 8px 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.register-person input[type="text"]:focus,
+.register-person input[type="email"]:focus,
+.register-person input[type="password"]:focus,
+.register-person select:focus {
+  border-color: #c3d347;
+  outline: none;
+}
+
+.register-person button[type="submit"] {
+  background-color: #c1cf57;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-person button[type="submit"]:hover {
+  background-color: #c3d34771;
+}
+
+.update-person {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+.update-person h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.update-person form div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.update-person label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #1f2d3d;
+  font-size: 1rem;
+}
+
+.update-person input[type="text"],
+.update-person input[type="email"],
+.update-person input[type="password"],
+.update-person select {
+  padding: 8px 12px;
+  border: 1.5px solid #999;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.update-person input[type="text"]:focus,
+.update-person input[type="email"]:focus,
+.update-person input[type="password"]:focus,
+.update-person select:focus {
+  border-color: #a8b73d;
+  outline: none;
+}
+
+.update-person button[type="submit"] {
+  background-color: #a8b73d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-person button[type="submit"]:hover {
+  background-color: #889a2a99;
+}
 /* Responsive */
 
 @media (max-width: 768px) {

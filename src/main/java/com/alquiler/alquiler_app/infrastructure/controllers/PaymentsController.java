@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alquiler.alquiler_app.application.service.PaymentService;
+import com.alquiler.alquiler_app.domain.DTOs.PaymentResponse;
 import com.alquiler.alquiler_app.domain.entities.Payment;
 import com.alquiler.alquiler_app.domain.entities.Reservation;
 import com.alquiler.alquiler_app.infrastructure.repository.Payments.PaymentsRepository;
@@ -34,7 +35,7 @@ public class PaymentsController {
     }
 
     @GetMapping
-    public List<Payment> getAllPersons(){
+    public List<PaymentResponse> getAllPayments() {
         return paymentService.getAllPayments();
     }
 

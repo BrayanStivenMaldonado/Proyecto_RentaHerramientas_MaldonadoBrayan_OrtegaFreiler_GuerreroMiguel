@@ -30,6 +30,8 @@ public class AuthService {
 
         return AuthResponse.builder()
             .token(token)
+            .firstname(person.getFirstName())
+            .lastname(person.getLastName())
             .role(person.getRole().name())
             .build();
     }

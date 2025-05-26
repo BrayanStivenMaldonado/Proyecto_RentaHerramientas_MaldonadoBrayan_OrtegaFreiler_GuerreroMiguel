@@ -1,88 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PANEL DE CONTROL</title>
+    <link rel="stylesheet" href="../static/AdminPanel.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><img src="../media/image 8.png" alt="logo" /></div>
+      <h1>PANEL DE CONTROL</h1>
+      <div class="admin-info">
+        <span id="admin-name">Nombre de administrador</span>
+        <span class="icon"><img src="../media/Notificacion.png" alt="" /></span>
+        <span class="icon"><img src="../media/User.png" alt="" /></span>
+      </div>
+    </header>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PANEL DE CONTROL</title>
-  <link rel="stylesheet" href="../static/AdminPanel.css" />
-</head>
+    <div class="container">
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="#">USUARIOS</a></li>
+            <li>
+              <a href="../Templates/AdminReportes.html">PAGOS E HISTORIAL</a>
+            </li>
+            <li><a href="../Templates/AdminAlquiler.html">ALQUILERES</a></li>
+            <li>
+              <a href="../Templates/AdminReporteHerramienta.html"
+                >PANEL SUPERVISIÓN</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-<body>
-
-  <header class="header">
-    <div class="logo"><img src="../media/image 8.png" alt="logo"></div>
-    <h1>PANEL DE CONTROL</h1>
-    <div class="admin-info">
-      <span>Nombre de administrador</span>
-      <span class="icon"><img src="../media/Notificacion.png" alt=""></span>
-      <span class="icon"><img src="../media/User.png" alt=""></span>
+      <main class="main-content">
+        <section class="content">
+          <div class="filter">
+            <label id="filtro" for="tipo">Filtrar:</label>
+            <select id="tipo">
+              <option value="proveedor">proveedor</option>
+              <option value="cliente">cliente</option>
+              <option value="admin">admin</option>
+            </select>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Usuario</th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Rol</th>
+                  <th> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>001</td>
+                  <td>Juan Pérez</td>
+                  <td>juan@example.com</td>
+                  <td>qnsabe</td>
+                  <td>Admin</td>
+                </tr>
+                <tr>
+                  <td>002</td>
+                  <td>María López</td>
+                  <td>maria@example.com</td>
+                  <td>qnsabe</td>
+                  <td>Admin</td>
+                </tr>
+                <tr>
+                  <td>003</td>
+                  <td>Pedro García</td>
+                  <td>pedro@example.com</td>
+                  <td>qnsabe</td>
+                  <td>Admin</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="reg-up">
+            <div class="register-person">
+            <h2>Registrar Persona</h2>
+            <form id="registerForm">
+              <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+              </div>
+              <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required />
+              </div>
+              <div>
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required />
+              </div>
+              <div>
+                <label for="contrasena">Contraseña:</label>
+                <input
+                  type="password"
+                  id="contrasena"
+                  name="contrasena"
+                  required
+                />
+              </div>
+              <div>
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol" required>
+                  <option value="">Seleccione un rol</option>
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="PROVIDER">PROVIDER</option>
+                  <option value="USER">USER</option>
+                </select>
+              </div>
+              <div>
+                <button type="submit">Registrar</button>
+              </div>
+              
+            </form>
+          </div>
+          <div class="update-person">
+            <h2>Actualizar Persona</h2>
+            <form id="updateForm">
+              <div>
+                <label for="update-id">ID de Usuario:</label>
+                <input
+                  type="text"
+                  id="update-id"
+                  name="update-id"
+                  placeholder="ID a actualizar"
+                  required
+                />
+              </div>
+              <div>
+                <label for="update-nombre">Nombre:</label>
+                <input
+                  type="text"
+                  id="update-nombre"
+                  name="update-nombre"
+                  required
+                />
+              </div>
+              <div>
+                <label for="update-apellido">Apellido:</label>
+                <input
+                  type="text"
+                  id="update-apellido"
+                  name="update-apellido"
+                  required
+                />
+              </div>
+              <div>
+                <label for="update-correo">Correo:</label>
+                <input
+                  type="email"
+                  id="update-correo"
+                  name="update-correo"
+                  required
+                />
+              </div>
+              <div>
+                <label for="update-contrasena">Contraseña:</label>
+                <input
+                  type="password"
+                  id="update-contrasena"
+                  name="update-contrasena"
+                  required
+                />
+              </div>
+              <div>
+                <label for="update-rol">Rol:</label>
+                <select id="update-rol" name="update-rol" required>
+                  <option value="">Seleccione un rol</option>
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="PROVIDER">PROVIDER</option>
+                  <option value="USER">USER</option>
+                </select>
+              </div>
+              <div>
+                <button type="submit">Actualizar</button>
+              </div>         
+          </div>
+            </form>
+          </div>
+          
+        </section>
+      </main>
     </div>
-  </header>
 
-  <div class="container">
-    <aside class="sidebar">
-
-      <nav>
-        <ul>
-          <li><a href="#">USUARIOS</a></li>
-          <li><a href="../Templates/AdminReportes.html">PAGOS E HISTORIAL</a></li>
-          <li><a href="../Templates/AdminAlquiler.html">ALQUILERES</a></li>
-          <li><a href="../Templates/AdminReporteHerramienta.html">PANEL SUPERVISIÓN</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      <section class="content">
-        <div class="filter">
-          <label for="tipo">Filtrar:</label>
-          <select id="tipo">
-            <option value="proveedor">proveedor</option>
-            <option value="cliente">cliente</option>
-          </select>
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>ID Usuario</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>001</td>
-                <td>Juan Pérez</td>
-                <td>juan@example.com</td>
-                <td>Activo</td>
-              </tr>
-              <tr>
-                <td>002</td>
-                <td>María López</td>
-                <td>maria@example.com</td>
-                <td>Inactivo</td>
-              </tr>
-              <tr>
-                <td>003</td>
-                <td>Pedro García</td>
-                <td>pedro@example.com</td>
-                <td>Activo</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer class="footer">
-    <p>&copy; 2025 Constructora MSF</p>
-  </footer>
-
-</body>
-
+    <footer class="footer">
+      <p>&copy; 2025 Constructora MSF</p>
+    </footer>
+  </body>
+  <script src="../static/AdminPanel.js"></script>
 </html>

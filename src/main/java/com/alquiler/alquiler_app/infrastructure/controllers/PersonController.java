@@ -43,27 +43,6 @@ public class PersonController {
         
        return ResponseEntity.ok(person);
     }
-    
-    // @PostMapping
-    // public ResponseEntity<?> createPerson(@RequestBody PersonRequestDTO personRequestDTO){
-    //     List<Role> roles = personRequestDTO.getRoleIds().stream()
-    //     .map(id -> roleService.findById(id)
-    //         .orElseThrow(() -> new ResourceNotFoundException("Rol con ID " + id + " no encontrado"))
-    //     ).toList();
-
-    //     Person person = new Person();
-    //     person.setFirstName(personRequestDTO.getFirstName());
-    //     person.setLastName(personRequestDTO.getLastName());
-    //     person.setIdNumber(personRequestDTO.getIdNumber());
-    //     person.setPhone(personRequestDTO.getPhone());
-    //     person.setEmail(personRequestDTO.getEmail());
-    //     person.setPassword(passwordEncoder.encode(personRequestDTO.getPassword()));
-    //     person.setAdmin(personRequestDTO.isAdmin());
-    //     person.setRoles(roles);
-
-    //     Person savedPerson = personService.savePerson(person);
-    //     return ResponseEntity.status(HttpStatus.CREATED).body(savedPerson);
-    // }
 
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody Person person, BindingResult result) {
