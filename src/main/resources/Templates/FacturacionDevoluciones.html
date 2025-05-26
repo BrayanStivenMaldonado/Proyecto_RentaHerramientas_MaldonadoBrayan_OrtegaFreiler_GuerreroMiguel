@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alquiler MSF - Facturacion</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alquiler MSF - Facturación</title>
     <link rel="shortcut icon" href="../media/image 8.png" type="image/x-icon" />
     <link rel="stylesheet" href="../static/FacturacionDevoluciones.css" />
 </head>
@@ -20,10 +20,14 @@
             </ul>
         </nav>
         <div class="buttons">
-            <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
-                    alt="Notificacion" class="notificacion" /></button>
-            <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
-                        class="usuario" /></a></button>
+            <button class="notificacion_button" onclick="Mostrar_Notificaciones()">
+                <img src="../media/Notificacion.png" alt="Notificacion" class="notificacion" />
+            </button>
+            <button class="Usuario_button">
+                <a href="Login.html">
+                    <img src="../media/User.png" alt="Usuario" class="usuario" />
+                </a>
+            </button>
         </div>
     </header>
 
@@ -34,10 +38,14 @@
     </div>
 
     <ul class="nav-menu" id="navMenu">
-        <button class="notificacion_button" onclick="Mostrar_Notificaciones()"><img src="../media/Notificacion.png"
-                alt="Notificacion" class="notificacion" /></button>
-        <button class="Usuario_button"><a href="Login.html"><img src="../media/User.png" alt="Usuario"
-                    class="usuario" /></a></button>
+        <button class="notificacion_button" onclick="Mostrar_Notificaciones()">
+            <img src="../media/Notificacion.png" alt="Notificacion" class="notificacion" />
+        </button>
+        <button class="Usuario_button">
+            <a href="Login.html">
+                <img src="../media/User.png" alt="Usuario" class="usuario" />
+            </a>
+        </button>
     </ul>
 
     <div id="Mensajes">
@@ -53,37 +61,42 @@
 
         <section class="contenido">
             <div class="filtros">
-                <button>Filtrar</button>
-                <span>Fecha de compra <strong class="Fecha_Num"> 22/05/2025 </strong></span>
-
+                <button type="button" onclick="cargarDevoluciones()">Filtrar</button>
+                <span>Fecha de compra <strong class="Fecha_Num">22/05/2025</strong></span>
             </div>
 
-            <div class="tarjetas">
-                <div class="tarjeta">
-                    <h4>Comprobante de pago</h4>
-                    <input type="file" id="Comprobante_Pago" name="Comprobante_Pago" accept=".pdf,.jpg,.jpeg,.png"/>
-                    <img id="previewImagen" style="margin-top: 10px; max-width: 100%; display: none;" class="Imagen_Preview" />
-                </div>
+            <form id="formDevolucion" enctype="multipart/form-data" onsubmit="Enviar_Informacion(event)">
+                <div class="tarjetas">
+                    <div class="tarjeta">
+                        <h4>Comprobante de pago</h4>
+                        <input type="file" id="Comprobante_Pago" name="comprobante" accept=".pdf,.jpg,.jpeg,.png" />
+                        <img id="previewImagen" style="margin-top: 10px; max-width: 100%; display: none;"
+                            class="Imagen_Preview" />
+                    </div>
 
+                    <div class="tarjeta">
+                        <h4>Motivo de la devolución</h4>
+                        <div class="Description_Tool">
+                            <textarea id="Text_Tools_Description" name="motivo" rows="2"
+                                placeholder="Escribe el motivo de la devolución"></textarea>
+                        </div>
+                    </div>
 
-                <div class="tarjeta">
-                    <h4>Motivo de la devolucion</h4>
-                    <div class="Description_Tool">
-                        <textarea name="Text_Tools" id="Text_Tools_Description" rows="2"
-                            placeholder="Escribe el motivo de la devolucion"></textarea>
+                    <div class="tarjeta">
+                        <h4>Estado del producto</h4>
+                        <input type="file" id="Estado_Producto" name="estadoProducto" accept=".jpg,.jpeg,.png" />
+                        <img id="previewEstado" style="margin-top: 10px; max-width: 100%; display: none;" />
                     </div>
                 </div>
 
-                <div class="tarjeta">
-                    <h4>Estado del producto</h4>
-                    <img src="../media/Martillo.png" alt="Martillo" />
+                <div class="button_submit">
+                    <button type="submit" class="submit">Enviar</button>
                 </div>
-            </div>
-            <div class="button_submit">
-                <button class="submit" onclick="Enviar_Informacion()">Enviar</button>
-            </div>
+            </form>
         </section>
     </div>
+
+    <div id="listaDevoluciones" class="tarjetas"></div>
 
     <footer>
         <div class="footer">
@@ -92,7 +105,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="../static/FacturacionDevoluciones.js"></script>
 </body>
-<script src="../static/FacturacionDevoluciones.js"></script>
 
 </html>

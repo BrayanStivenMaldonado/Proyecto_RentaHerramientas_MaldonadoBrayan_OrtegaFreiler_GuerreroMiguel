@@ -4,17 +4,12 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "return")
 public class Return {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,46 +21,35 @@ public class Return {
 
     private LocalDate date;
     private String condition;
+    private String proofFilePath;
+    private String productImagePath;
 
-    public Return() {
-    }
+    public Return() {}
 
-    public Return(Long id, Reservation reservation, LocalDate date, String condition) {
+    public Return(Long id, Reservation reservation, LocalDate date, String condition, String proofFilePath, String productImagePath) {
         this.id = id;
         this.reservation = reservation;
         this.date = date;
         this.condition = condition;
+        this.proofFilePath = proofFilePath;
+        this.productImagePath = productImagePath;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Reservation getReservation() { return reservation; }
+    public void setReservation(Reservation reservation) { this.reservation = reservation; }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate date) { this.date = date; }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
+    public String getCondition() { return condition; }
+    public void setCondition(String condition) { this.condition = condition; }
 
-    public LocalDate getDate() {
-        return date;
-    }
+    public String getProofFilePath() { return proofFilePath; }
+    public void setProofFilePath(String proofFilePath) { this.proofFilePath = proofFilePath; }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
+    public String getProductImagePath() { return productImagePath; }
+    public void setProductImagePath(String productImagePath) { this.productImagePath = productImagePath; }
 }
