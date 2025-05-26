@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="../static/Carrito.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+    </div>
+    <ul class="nav-links">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="carrito.html">Carrito</a>
+    </ul>
+    <div class="icons">
+      <span>🔔</span>
+      <span>👤</span>
+    </div>
+  </header>
+
+  <main class="carrito">
+    <h2>Tu Carrito de Compras</h2>
+
+    <div id="productos-carrito">
+      <!-- Los productos del carrito se mostrarán aquí -->
+    </div>
+
+    <div class="total-carrito">
+      <p><strong>Total:</strong> <span id="total-carrito">$0</span></p>
+      <button class="btn" id="btn-reservar">Proceder a pagar</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Proyecto Renta de Herramientas</p>
+      <p>Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="../static/Carrito.js"></script>
+</body>
+</html>

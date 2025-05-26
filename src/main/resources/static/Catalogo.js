@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         producto.innerHTML = `
           <div>
-            <a href="Herramientas.html" class="Link_Herramientas">
+            <a href="Detalleprodu.html" class="Link_Herramientas">
               <img src="${tool.image}" alt="${tool.toolName}">
             </a>
           </div>

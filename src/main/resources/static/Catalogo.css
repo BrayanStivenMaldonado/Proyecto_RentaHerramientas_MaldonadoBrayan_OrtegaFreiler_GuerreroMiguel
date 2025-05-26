@@ -139,22 +139,24 @@ main {
 }
 
 .producto {
-  height: 200px;
+  height: 250px; /* un poco más alto para texto e imagen */
   background-color: #e6e6e6;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* para que no quede todo centrado */
   align-items: center;
   text-align: center;
   font-size: 12px;
   padding: 10px;
 }
 
-.Link_Herramientas img{
-  max-width: 10rem;
-  width: 100%;
-  height: 100%;
+.Link_Herramientas img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* mantiene la proporción y recorta si es necesario */
+  border-radius: 10px; /* opcional, para estética */
 }
+
 
 footer {
   display: flex;
