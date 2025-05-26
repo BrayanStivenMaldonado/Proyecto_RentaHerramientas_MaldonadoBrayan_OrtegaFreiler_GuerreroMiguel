@@ -91,7 +91,8 @@ aside {
     background: #c1cf57;
     padding: 20px;
     width: 200px;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 140vh;
     display: flex;
     flex-direction: column;
 }
@@ -111,7 +112,6 @@ aside a.activo {
 .contenido {
     flex: 1;
     padding: 20px;
-    background: white;
 }
 
 .filtros {
@@ -127,6 +127,16 @@ aside a.activo {
     border: none;
     cursor: pointer;
     font-weight: bold;
+}
+
+#listaDevoluciones {
+    position: adsolute;
+    display: flex;
+    margin-top: -60rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 222px;
+    margin-bottom: 2rem;
 }
 
 /* Tarjetas */
@@ -231,7 +241,7 @@ footer p {
     font-weight: bold;
 }
 
-.Description_Tool{ 
+.Description_Tool {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -245,7 +255,7 @@ footer p {
     font-size: 1rem;
 }
 
-.button_submit{
+.button_submit {
     display: flex;
     background-color: #C1CF57;
     color: white;
@@ -371,5 +381,4 @@ footer p {
     .button_submit button {
         font-size: 1.4rem;
     }
-
 }
