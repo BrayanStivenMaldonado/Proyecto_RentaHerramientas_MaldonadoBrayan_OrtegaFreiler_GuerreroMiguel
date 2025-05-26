@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.alquiler.alquiler_app.application.service.PaymentService;
 import com.alquiler.alquiler_app.domain.DTOs.PaymentResponse;
+import com.alquiler.alquiler_app.domain.entities.Payment;
 
 @Service
 public class PaymentsImpl implements PaymentService {
