@@ -136,9 +136,9 @@ function cargarDevoluciones() {
             tarjeta.innerHTML = `
                 <h4>Devolución</h4>
                 <p><strong>ID:</strong> ${dev.id}</p>
-                <p><strong>Motivo:</strong> ${dev.motivo || 'Sin especificar'}</p>
                 <p><strong>Fecha:</strong> ${dev.fecha || 'No disponible'}</p>
                 <p><strong>Condición:</strong> ${dev.condition || 'No indicada'}</p>
+                <p><strong>Comprobante de pago:</strong> ${dev.motivo || 'Sin especificar'}</p>
             `;
             contenedor.appendChild(tarjeta);
         });
