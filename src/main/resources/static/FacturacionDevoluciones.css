@@ -164,24 +164,6 @@ aside a.activo {
     justify-content: center;
 }
 
-.pendiente {
-    display: flex;
-    justify-content: center;
-    background-color: #e4aa78;
-}
-
-.aceptado {
-    display: flex;
-    justify-content: center;
-    background-color: #93e093;
-}
-
-.rechazado {
-    display: flex;
-    justify-content: center;
-    background-color: #f2a7a7;
-}
-
 .User_name {
     display: flex;
     justify-content: center;

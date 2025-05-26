@@ -53,8 +53,11 @@
 
         <section class="contenido">
             <div class="filtros">
-                <button>Filtrar</button>
-                <span>Fecha <strong class="Fecha_Num">22/05/2025</strong></span>
+                <button onclick="filtrarPorNombre()">Filtrar por ID: <input type="text" id="filtroID"
+                    placeholder="Buscar factura por ID" onkeydown="verificarEnter(event)" /></button>
+
+                <button onclick="filtrarTabla()">Mostrar facturas</button>
+
             </div>
             <div class="tabla">
                 <h2 class="titulo-factura">FACTURA</h2>
@@ -62,12 +65,8 @@
                     <thead>
                         <tr>
                             <th>Alquiler MSF<br><small>Calle 12 # 4-50</small></th>
-                            <th>Fecha<br><small>22-05-2025</small></th>
                             <th>Armenia<br><small>Quindío</small></th>
-                            <th>Numero<br><small>001</small></th>
                         </tr>
-                    </thead>
-                    <tbody>
                         <tr class="encabezado-detalles">
                             <th>PRODUCTOS</th>
                             <th>DETALLES</th>
@@ -75,6 +74,9 @@
                             <th>PRECIO</th>
                             <th>TOTAL</th>
                         </tr>
+                    </thead>
+
+                    <tbody>
                         <tr>
                             <td>Martillo</td>
                             <td>Lorem ipsum dolor sit</td>
@@ -106,15 +108,16 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="Total">Total a pagar</td>
-                            <td class="Total">IVA 21%</td>
-                            <td class="Total">Subtotal $ 50.00</td>
+                            <td colspan="3">Total a pagar</td>
+                            <td>IVA 21%</td>
+                            <td id="subtotal">Subtotal $ 50.00</td>
                         </tr>
                         <tr>
                             <td colspan="4"></td>
-                            <td><strong>$ 60.5</strong></td>
+                            <td id="totalFinal"><strong>$ 60.5</strong></td>
                         </tr>
                     </tfoot>
+
                 </table>
             </div>
             <div class="donwload">

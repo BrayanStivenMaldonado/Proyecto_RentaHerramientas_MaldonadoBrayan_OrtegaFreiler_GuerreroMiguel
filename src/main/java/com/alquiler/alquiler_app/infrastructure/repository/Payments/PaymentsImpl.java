@@ -1,6 +1,7 @@
 package com.alquiler.alquiler_app.infrastructure.repository.Payments;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,11 @@ public class PaymentsImpl implements PaymentService {
     @Override
     public List<Payment> getAllPayments() {
         return (List<Payment>)paymentsRepository.findAll();
+    }
+
+    @Override
+    public Optional<Payment> getById(Long idf) {
+       return paymentsRepository.findById(idf);
     }
     
 }
