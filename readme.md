@@ -12,7 +12,6 @@ Proyecto backend desarrollado en **Java 21** con **Spring Boot**, enfocado en la
 ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
-![WebSockets](https://img.shields.io/badge/WebSockets-ffa500?style=for-the-badge)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -95,6 +94,16 @@ mvn spring-boot:run
 # Diagrama relacional de la base de datos
 
 ![Untitled](https://github.com/user-attachments/assets/868620ef-690f-4027-ab91-4f967c73ba91)
+
+## 📄 Documentación de la API (Swagger)
+
+La documentación interactiva de los endpoints está disponible gracias a Swagger UI. Desde allí puedes probar cada ruta, enviar peticiones y ver respuestas en tiempo real.
+
+🔗 **Accede a Swagger UI aquí**: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+> Asegúrate de que la aplicación esté en ejecución para acceder a la interfaz Swagger.
+
+[![Swagger UI](https://img.shields.io/badge/API-Swagger_UI-green?logo=swagger)](http://localhost:8080/swagger-ui/index.html)
 
 ## 📄 Documentación de Endpoints de la API
 
