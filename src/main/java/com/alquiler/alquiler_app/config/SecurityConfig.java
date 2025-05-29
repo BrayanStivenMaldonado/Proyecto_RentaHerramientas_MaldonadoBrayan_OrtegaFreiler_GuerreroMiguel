@@ -28,21 +28,23 @@ public class SecurityConfig {
     private final AuthenticationProvider authProvider;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-            .cors()
-            .and()
-            .csrf(csrf ->
-                    csrf
-                    .disable())
-            .authorizeHttpRequests(authRequest ->
-                authRequest
-                    .requestMatchers("/auth/**").permitAll()
-                    .anyRequest().authenticated()
-                    )
-                .sessionManagement(sessionManager-> 
-                    sessionManager
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors()
+                .and()
+                .csrf(csrf -> csrf
+                        .disable())
+                .authorizeHttpRequests(authRequest -> authRequest
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/api-docs/**")
+                        .permitAll()
+                        .anyRequest().authenticated())
+                .sessionManagement(sessionManager -> sessionManager
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

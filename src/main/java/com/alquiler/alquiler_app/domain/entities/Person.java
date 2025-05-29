@@ -21,6 +21,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,9 +38,14 @@ public class Person implements UserDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "no puede estar vacío")
     private String firstName;
+
+    @NotBlank(message = "no puede estar vacío")
     private String lastName;
+
     private String username;
+
     private String password;
 
     @Enumerated(EnumType.STRING)

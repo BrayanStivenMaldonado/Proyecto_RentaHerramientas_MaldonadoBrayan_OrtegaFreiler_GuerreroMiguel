@@ -1,13 +1,10 @@
 package com.alquiler.alquiler_app.infrastructure.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,48 +24,36 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping(value = "/api/persons")
 public class PersonController {
-    
+
     @Autowired
     private PersonService personService;
 
     @GetMapping
-    public List<Person> getAllPersons(){
+    public List<Person> getAllPersons() {
         return personService.getAllPersons();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable Long id) {
         Person person = personService.getPersonById(id)
-        .orElseThrow(()-> new ResourceNotFoundException("persona con ID "+id+" no se pudo encontrar"));
-        
-       return ResponseEntity.ok(person);
+                .orElseThrow(() -> new ResourceNotFoundException("persona con ID " + id + " no se pudo encontrar"));
+
+        return ResponseEntity.ok(person);
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@Valid @RequestBody Person person, BindingResult result) {
-        if (result.hasFieldErrors()) {
-            return validation(result);
-        }
+    public ResponseEntity<?> create(@Valid @RequestBody Person person) {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.savePerson(person));
-    }
-    
-    private ResponseEntity<?> validation(BindingResult result) {
-        Map<String, String> errors = new HashMap<>();
-
-        result.getFieldErrors().forEach(err -> {
-            errors.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
-        });
-        return ResponseEntity.badRequest().body(errors);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody PersonRequestDTO personDto){
-       Person updatedPerson = personService.updatePerson(id, personDto);
-       return ResponseEntity.ok(updatedPerson);
+    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody PersonRequestDTO personDto) {
+        Person updatedPerson = personService.updatePerson(id, personDto);
+        return ResponseEntity.ok(updatedPerson);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePerson(@PathVariable Long id){
+    public ResponseEntity<?> deletePerson(@PathVariable Long id) {
         personService.deletePerson(id);
         return ResponseEntity.noContent().build();
     }

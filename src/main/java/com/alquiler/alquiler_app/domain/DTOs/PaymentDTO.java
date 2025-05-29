@@ -1,6 +1,7 @@
 package com.alquiler.alquiler_app.domain.DTOs;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,18 +16,23 @@ public class PaymentDTO {
     private Long reservationId;
     private List<String> toolNames;
 
-    
     public PaymentDTO(Payment payment) {
         this.id = payment.getId();
         this.paymentMethod = payment.getPaymentMethod();
         this.date = payment.getDate();
         this.subtotal = payment.getSubtotal();
         this.total = payment.getTotal();
-        this.reservationId = payment.getReservation().getId();
-        this.toolNames = payment.getReservation().getTools()
-            .stream()
-            .map(rt -> rt.getTool().getToolName())
-            .collect(Collectors.toList());
+
+        if (payment.getReservation() != null) {
+            this.reservationId = payment.getReservation().getId();
+            this.toolNames = payment.getReservation().getTools() != null ? payment.getReservation().getTools()
+                    .stream()
+                    .map(rt -> rt.getTool().getToolName())
+                    .collect(Collectors.toList()) : new ArrayList<>();
+        } else {
+            this.reservationId = null;
+            this.toolNames = new ArrayList<>();
+        }
     }
 
     public Long getId() {
